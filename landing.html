@@ -16,22 +16,22 @@
 	
 	<form action>
 		<div title="Fast, reliable in-flight WiFi.">
-			<input class="messageCheckbox" type="checkbox" name="item" value="CON">In-Flight WiFi<br>
+			<input class="messageCheckbox" type="checkbox" name="item" value="CON">In-Flight WiFi - $8<br>
 		</div>
 		<div title="Choose a vegetarian, vegan, or gluten-free meal.">
-			<input class="messageCheckbox" type="checkbox" name="item" value="MEL" checked>Premium meal<br>
+			<input class="messageCheckbox" type="checkbox" name="item" value="MEL">Premium meal - $15<br>
 		</div>
 		<div title="Shop and move about hands-free.">
-			<input class="messageCheckbox" type="checkbox" name="item" value="BAG" checked>Baggage storage<br>
+			<input class="messageCheckbox" type="checkbox" name="item" value="BAG">Baggage storage - $7<br>
 		</div>	
 		<div title="Escape the crowds and find a quiet space to work or relax.">
-			<input class="messageCheckbox" type="checkbox" name="item" value="LNP" checked>Lounge pass<br>
+			<input class="messageCheckbox" type="checkbox" name="item" value="LNP">Lounge pass - $10<br>
 		</div>
 		<div title="A convenient option that lets you reserve your preferred seat.">
-			<input class="messageCheckbox" type="checkbox" name="item" value="SET" checked>Seat selection<br>
+			<input class="messageCheckbox" type="checkbox" name="item" value="SET">Seat selection - $30<br>
 		</div>
 		<div title="Skip the long security queues with an express line.">
-			<input class="messageCheckbox" type="checkbox" name="item" value="FTR" checked>Fast track<br>
+			<input class="messageCheckbox" type="checkbox" name="item" value="FTR">Fast track - $12<br>
 		</div>
 	  <input type="submit" value="Submit" onClick="purchaseItem()">
 	</form>
@@ -41,15 +41,15 @@
 		{
 			var checkboxes = document.getElementsByName("item");
 			var vals = "";
-			for (var i=0, n=checkboxes.length;i<n;i++) 
+			for (var i=0, n=checkboxes.length; i<n; i++) 
 			{
 				if (checkboxes[i].checked) 
 				{
-					vals += ","+checkboxes[i].value;
+					vals += ", " + checkboxes[i].value;
 				}
 			}
 			if (vals) vals = vals.substring(1);
-			alert(checkedValue);
+			alert(vals);
 		}
 	
 	</script>
