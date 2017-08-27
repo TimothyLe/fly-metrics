@@ -1,0 +1,147 @@
+<!--Airline page-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FlyMetrics | Enterprise</title>
+	<!--META-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">	
+	<!--FAVICON-->
+	<link rel="shortcut icon" href="./public/favicon.ico" type="image/x-icon">
+	<!--FONTS-->
+	<style type="text/css">
+		@import url('https://fonts.googleapis.com/css?family=Roboto');
+	</style>
+	<!--Styling-->
+	<link href="./assets/css/please-wait.css" rel="stylesheet">
+	<link rel="stylesheet" text="text/css" href="./assets/css/bootstrap.css">
+	<style type="text/css">
+		body > .inner {
+			display: none;
+		}
+
+		body.pg-loaded > .inner {
+			display: block;
+		}
+
+		.robfont{
+			font-family: 'Roboto';
+		}
+
+		.vertical-center {
+			height:100%;
+			width:100%;
+
+			text-align: center;  /* align the inline(-block) elements horizontally */
+			font: 0/0 a;         /* remove the gap between inline(-block) elements */
+		}
+
+		.vertical-center:before {    /* create a full-height inline block pseudo=element */
+			content: " ";
+			display: inline-block;
+			vertical-align: middle;    /* vertical alignment of the inline element */
+			height: 100%;
+		}
+
+		.vertical-center > .container {
+			max-width: 100%;
+
+			display: inline-block;
+			vertical-align: middle;  /* vertical alignment of the inline element */
+			/* reset the font property */
+			font: 16px/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
+		}
+
+		.parallax1 {
+			/* Create the parallax scrolling effect */
+			opacity: 0.8;
+			position: relative;
+			background-attachment: fixed;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			/* The image used */
+			background-image: url('./src/airplane.gif');
+
+			/* Full height */
+			height: 100%; 
+		}
+		/* Turn off parallax scrolling for tablets and phones. Increase the pixels if needed */
+		@media only screen and (max-device-width: 1024px) {
+			.parallax {
+				background-attachment: scroll;
+			}
+		}
+
+		.load {
+			width: 70px;
+			height: 70px;
+			margin: auto;
+			position: relative;
+		}
+
+		.loader {
+			width: 70px;
+			height: 70px;
+			border-top: 5px solid cornflowerblue;
+			border-bottom: 5px solid cornflowerblue;
+			animation: clockspin 2s linear 3;
+			border-radius: 50%;
+		}
+
+
+		/*Spin*/
+		@keyframes clockspin {
+			from {transform: rotate(0deg);}
+			to {transform: rotate(360deg);}
+		}
+		@keyframes fadeout {
+			from{opacity: 1;}
+			to{opacity: 0;}
+		}
+	</style>
+</head>
+<body>
+	<div class="preload" id="preload">
+		<div class="vertical-center">
+		<img src="./src/airplane.png" class="App-logo" alt="logo" />
+		<i><h1 class="robfont" style="font-size: 48px; color: black;">FlyMetrics Enterprise</h1></i>
+		<h1 class="robfont" style="font-size: 24px; color: black;">The sky is the limit.</h1>
+	</div><br>
+	<div class="container container-fluid">
+		<h2 align="middle">
+			We are gathering an analysis of your metrics
+		</h2><br><br>
+		<div class="load">
+			<div class="loader" id="loader"></div>
+		</div>
+	</div><br><br>
+	</div>
+
+	<!--SCRIPTS-->
+	<script type="text/javascript" src="./assets/js/please-wait.min.js"></script>
+	<!-- JQuery -->
+	<script type="text/javascript" src="./assets/js/jquery-3.2.1.min.js"></script>
+	<!-- Bootstrap tooltips -->
+	<script type="text/javascript" src="./assets/js/popper.min.js"></script>
+	<!-- Bootstrap core JavaScript -->
+	<script type="text/javascript" src="./assets/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		var preload = document.getElementById("preload");
+		var loading = 0;
+		var id = setInterval(frame, 64);
+
+		function frame(){
+			if(loading==100){
+				clearInterval(id);
+				window.open("enter2.html", "_self");
+			} else{
+				loading = loading + 1;
+				if(loading == 90){
+					preload.style.animation = "fadeout ls ease";
+				}
+			}
+		}
+	</script>
+</body>
+</html>

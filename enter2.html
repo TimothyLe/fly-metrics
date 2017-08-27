@@ -1,0 +1,228 @@
+<!--Airline page-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FlyMetrics | Enterprise</title>
+	<!--META-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">	
+	<!--FAVICON-->
+	<link rel="shortcut icon" href="./public/favicon.ico" type="image/x-icon">
+	<!--FONTS-->
+	<style type="text/css">
+		@import url('https://fonts.googleapis.com/css?family=Roboto');
+	</style>
+	<!-- Material Design Bootstrap -->
+	<link href="./assets/css/mdb.min.css" rel="stylesheet">
+	<link rel="stylesheet" text="text/css" href="./assets/css/bootstrap.css">
+	<style type="text/css">
+		body > .inner {
+			display: none;
+		}
+
+		body.pg-loaded > .inner {
+			display: block;
+		}
+
+		.robfont{
+			font-family: 'Roboto';
+		}
+
+		.vertical-center {
+			height:100%;
+			width:100%;
+
+			text-align: center;  /* align the inline(-block) elements horizontally */
+			font: 0/0 a;         /* remove the gap between inline(-block) elements */
+		}
+
+		.vertical-center:before {    /* create a full-height inline block pseudo=element */
+			content: " ";
+			display: inline-block;
+			vertical-align: middle;    /* vertical alignment of the inline element */
+			height: 100%;
+		}
+
+		.vertical-center > .container {
+			max-width: 100%;
+
+			display: inline-block;
+			vertical-align: middle;  /* vertical alignment of the inline element */
+			/* reset the font property */
+			font: 16px/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
+		}
+
+		.parallax1 {
+			/* Create the parallax scrolling effect */
+			opacity: 0.8;
+			position: relative;
+			background-attachment: fixed;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			/* The image used */
+			background-image: url('./src/airplane.gif');
+
+			/* Full height */
+			height: 100%; 
+		}
+		/* Turn off parallax scrolling for tablets and phones. Increase the pixels if needed */
+		@media only screen and (max-device-width: 1024px) {
+			.parallax {
+				background-attachment: scroll;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="vertical-center">
+		<img src="./src/airplane.png" class="App-logo" alt="logo" />
+		<i><h1 class="robfont" style="font-size: 48px; color: black;">FlyMetrics Enterprise</h1></i>
+		<h1 class="robfont" style="font-size: 24px; color: black;">The sky is the limit.</h1>
+	</div><br>
+	<div class="container container-fluid">
+<br><br>
+	<div class="container container-fluid">
+		<!--Bar graph 1-->
+		<!--Money vs Places in the airport-->
+		<h3>Revenue per Business</h3>
+		<canvas id="barChart"></canvas><hr>
+		<!--Bar Graph 2-->
+		<!--Products vs Amount of Sales-->
+		<h3>Amount of Sales per Product</h3>
+		<canvas id="barChart2"></canvas><hr>
+		<!--Line Graph-->
+		<!--Total income vs time-->
+		<h3>Total Income from 8/20 to 8/27</h3>
+		<canvas id="lineChart"></canvas><br><br>
+	</div>
+	<footer align="middle" style="background-color: #FFF">FlyMetrics &copy; 2017</footer><br>
+
+	<!--SCRIPTS-->
+	<!-- JQuery -->
+	<script type="text/javascript" src="./assets/js/jquery-3.2.1.min.js"></script>
+	<!-- Bootstrap tooltips -->
+	<script type="text/javascript" src="./assets/js/popper.min.js"></script>
+	<!-- Bootstrap core JavaScript -->
+	<script type="text/javascript" src="./assets/js/bootstrap.min.js"></script>
+	<!-- MDB core JavaScript -->
+	<script type="text/javascript" src="./assets/js/mdb.min.js"></script>
+	<script type="text/javascript">
+		//line
+		var line1 = 1;
+		var line2 = 2;
+		var line3 = 3;
+		var line4 = 4;
+		var line5 = 5;
+		var line6 = 6;
+		var line7 = 7;
+		var ctxL = document.getElementById("lineChart").getContext('2d');
+		var myLineChart = new Chart(ctxL, {
+			type: 'line',
+			data: {
+				labels: ["August 20", "August 21", "August 22", "August 23", "August 24", "August 25", "August 26"],
+				datasets: [
+				{
+					label: "Income Margin",
+					fillColor: "rgba(220,220,220,0.2)",
+					strokeColor: "rgba(220,220,220,1)",
+					pointColor: "rgba(220,220,220,1)",
+					pointStrokeColor: "#fff",
+					pointHighlightFill: "#fff",
+					pointHighlightStroke: "rgba(220,220,220,1)",
+					data: [line1, line2, line3, line4, line5, line6, line7]
+				},
+				]
+			},
+			options: {
+				responsive: true
+			}    
+		});
+		//bar
+		var bar1 = 1;
+		var bar2 = 2;
+		var bar3 = 3;
+		var bar4 = 4;
+		var bar5 = 5;
+		var bar21 = 5;
+		var bar22 = 4;
+		var bar23 = 3;
+		var bar24 = 2;
+		var bar25 = 1;
+		var ctxB = document.getElementById("barChart").getContext('2d');
+		var myBarChart = new Chart(ctxB, {
+			type: 'bar',
+			data: {
+				labels: ["Cafe", "Hotspot Internet", "Souvenir Shop", "Green Burgers", "My Milkshake", "Layover Care"],
+				datasets: [{
+					label: 'Revenue in Airport businesses',
+					data: [bar1, bar2, bar3, bar4, bar5],
+					backgroundColor: [
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 159, 64, 0.2)'
+					],
+					borderColor: [
+					'rgba(255,99,132,1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)'
+					],
+					borderWidth: 1
+				}]
+			},
+			optionss: {
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero:true
+						}
+					}]
+				}
+			}
+		});
+		var ctxB2 = document.getElementById("barChart2").getContext('2d');
+		var myBarChart2 = new Chart(ctxB2, {
+			type: 'bar',
+			data: {
+				labels: ["Tobacco", "Wine", "iPhone Charger", "Swiss Chocolate", "Keychain", "Coffee"],
+				datasets: [{
+					label: 'Sales per Items',
+					data: [bar21, bar22, bar23, bar24, bar25],
+					backgroundColor: [
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 159, 64, 0.2)'
+					],
+					borderColor: [
+					'rgba(255,99,132,1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)'
+					],
+					borderWidth: 1
+				}]
+			},
+			optionss: {
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero:true
+						}
+					}]
+				}
+			}
+		});
+	</script>
+</body>
+</html>
