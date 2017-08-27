@@ -1,62 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-<title>FlyMetrics</title>
+
   <head>
-    <!-- Required meta tags -->
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <title>FlyMetrics</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/scrolling-nav.css" rel="stylesheet">
+
   </head>
-  <body>
-    <h1>Welcome to FlyMetrics!</h1>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">FlyMetric</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="bg-primary text-white">
+      <div class="container text-center">
+        <h1>Welcome to FlyMetric</h1>
+        <p class="lead">A fast and easy way to book and manage your flights, all in one place</p>
+      </div>
+    </header>
+
+    <section id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>Book a flight with us</h2>
+            <p class="lead">You pick a date, origin, destination, and the options you want. We handle the rest and find you the best flight!</p>
+          </div>
+        </div>
+		
+		<form action>
 	
-    <div id="map"></div>
+		Origin: <input type="text" id="origin"><br>
+		Destination: <input type="text" id="destination"><br>
 	
-	<form action>
-		<div title="Fast, reliable in-flight WiFi.">
-			<input class="messageCheckbox" type="checkbox" name="item" value="CON">In-Flight WiFi - $8<br>
+		Date of Departure: <input type="date" id="date" data-date-inline-picker="true">
+		
+		<div>
+			<input class="messageCheckbox" type="checkbox" name="item" value="CON">In-Flight WiFi<br>
+			<p><i>Fast, reliable in-flight WiFi. </i>($8)</p>
 		</div>
-		<div title="Choose a vegetarian, vegan, or gluten-free meal.">
-			<input class="messageCheckbox" type="checkbox" name="item" value="MEL">Premium meal - $15<br>
+		<div>
+			<input class="messageCheckbox" type="checkbox" name="item" value="MEL">Premium meal<br>
+			<p><i>Choose a vegetarian, vegan, or gluten-free meal. </i>($15)</p>
 		</div>
-		<div title="Shop and move about hands-free.">
-			<input class="messageCheckbox" type="checkbox" name="item" value="BAG">Baggage storage - $7<br>
+		<div>
+			<input class="messageCheckbox" type="checkbox" name="item" value="BAG">Baggage storage<br>
+			<p><i>Shop and move about hands-free. </i>($10)</p>
 		</div>	
-		<div title="Escape the crowds and find a quiet space to work or relax.">
-			<input class="messageCheckbox" type="checkbox" name="item" value="LNP">Lounge pass - $10<br>
+		<div>
+			<input class="messageCheckbox" type="checkbox" name="item" value="LNP">Lounge pass<br>
+			<p><i>Escape the crowds and find a quiet space to work or relax. </i>($12)</p>
 		</div>
-		<div title="A convenient option that lets you reserve your preferred seat.">
-			<input class="messageCheckbox" type="checkbox" name="item" value="SET">Seat selection - $30<br>
+		<div>
+			<input class="messageCheckbox" type="checkbox" name="item" value="SET">Seat selection<br>
+			<p><i>A convenient option that lets you reserve your preferred seat. </i>($30)</p>
 		</div>
-		<div title="Skip the long security queues with an express line.">
-			<input class="messageCheckbox" type="checkbox" name="item" value="FTR">Fast track - $12<br>
+		<div>
+			<input class="messageCheckbox" type="checkbox" name="item" value="FTR">Fast track<br>
+			<p><i>Skip the long security queues with an express line. </i>($12)</p>
 		</div>
 	  <input type="submit" value="Submit" onClick="purchaseItem()">
 	</form>
+		
+      </div>
+    </section>
 	
 	<script> 
 		function purchaseItem()
 		{
 			var checkboxes = document.getElementsByName("item");
-			var vals = "";
+			var options = "";
+			var date = document.getElementById("date").value;
+			var origin = document.getElementById("origin").value;
+			var destination = document.getElementById("destination").value;
+			
 			for (var i=0, n=checkboxes.length; i<n; i++) 
 			{
 				if (checkboxes[i].checked) 
 				{
-					vals += ", " + checkboxes[i].value;
+					options += ", " + checkboxes[i].value;
 				}
 			}
-			if (vals) vals = vals.substring(1);
-			alert(vals);
+			if (options) options = options.substring(1);
+			alert(options + " " + origin + " " + destination + " " + date);
 		}
 	
 	</script>
 
-    <!-- JavaScript -->
-	<script src="./js/location.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; FlyMetric 2017</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom JavaScript for this theme -->
+    <script src="js/scrolling-nav.js"></script>
+
   </body>
+
 </html>
