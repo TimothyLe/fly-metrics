@@ -1,4 +1,4 @@
-        <ServiceDefinitionList>
+<ServiceDefinitionList>
             <ServiceDefinition ServiceDefinitionID="SV_PRG_2001" Owner="Z9">
                 <Name>Wi-Fi Boost</Name>
                 <Encoding>

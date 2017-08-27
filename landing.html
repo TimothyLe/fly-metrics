@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>FlyMetrics</title>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1>Welcome to FlyMetrics!</h1>
+	
+    <div id="map"></div>
+	
+	<form action>
+		<div title="Fast, reliable in-flight WiFi.">
+			<input class="messageCheckbox" type="checkbox" name="item" value="CON">In-Flight WiFi<br>
+		</div>
+		<div title="Choose a vegetarian, vegan, or gluten-free meal.">
+			<input class="messageCheckbox" type="checkbox" name="item" value="MEL" checked>Premium meal<br>
+		</div>
+		<div title="Shop and move about hands-free.">
+			<input class="messageCheckbox" type="checkbox" name="item" value="BAG" checked>Baggage storage<br>
+		</div>	
+		<div title="Escape the crowds and find a quiet space to work or relax.">
+			<input class="messageCheckbox" type="checkbox" name="item" value="LNP" checked>Lounge pass<br>
+		</div>
+		<div title="A convenient option that lets you reserve your preferred seat.">
+			<input class="messageCheckbox" type="checkbox" name="item" value="SET" checked>Seat selection<br>
+		</div>
+		<div title="Skip the long security queues with an express line.">
+			<input class="messageCheckbox" type="checkbox" name="item" value="FTR" checked>Fast track<br>
+		</div>
+	  <input type="submit" value="Submit" onClick="purchaseItem()">
+	</form>
+	
+	<script> 
+		function purchaseItem()
+		{
+			var checkboxes = document.getElementsByName("item");
+			var vals = "";
+			for (var i=0, n=checkboxes.length;i<n;i++) 
+			{
+				if (checkboxes[i].checked) 
+				{
+					vals += ","+checkboxes[i].value;
+				}
+			}
+			if (vals) vals = vals.substring(1);
+			alert(checkedValue);
+		}
+	
+	</script>
+
+    <!-- JavaScript -->
+	<script src="./js/location.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  </body>
+</html>
