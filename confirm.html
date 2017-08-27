@@ -54,21 +54,21 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto">
-            <h2>Book a flight with us</h2>
-            <p class="lead">You pick a date, origin, destination, and the options you want. We handle the rest and find you the best flight!</p>
+            <h2>Thank you for booking!</h2>
+            <p class="lead">Here are your flight details:</p>
           </div>
         </div>
 				
-		<form action="confirm.html">
-		Username: <input type="text" required="required" name="username"><br> <br>
+		<form method="get" action="confirm.html">
+		Username: kareem<br> <br>
 	
-		Origin: <input type="text" id="origin"><br><br>
-		Destination: <input type="text" id="destination"><br><br>
+		Origin: DXB (Dubai International Airport) <br><br>
+		Destination: LHR (London Heathrow Airport) <br><br>
 	
-		Date of Departure: <input type="date" id="date" data-date-inline-picker="true">
+		Date of Departure: 08/31/2018
 		
 		<div>
-			<input class="messageCheckbox" type="checkbox" name="item" value="CON">In-Flight WiFi<br>
+			<input class="messageCheckbox" type="checkbox" name="item" value="CON" checked="true">In-Flight WiFi<br>
 			<p><i>Fast, reliable in-flight WiFi. </i>($8)</p>
 		</div>
 		<div>
@@ -88,12 +88,10 @@
 			<p><i>A convenient option that lets you reserve your preferred seat. </i>($30)</p>
 		</div>
 		<div>
-			<input class="messageCheckbox" type="checkbox" name="item" value="FTR">Fast track<br>
+			<input class="messageCheckbox" type="checkbox" name="item" value="FTR" checked="true">Fast track<br>
 			<p><i>Skip the long security queues with an express line. </i>($12)</p>
 		</div>
-	  <input type="submit" src="button.png" value="Submit" style="height:40px;width:225px" href="https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=86m77lzeen0tnc&state=987654321&scope=r_basicprofile&redirect_uri=https://timothyle.github.io/fly-metrics/landing.html">
-	  <a href="https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=86m77lzeen0tnc&state=987654321&scope=r_basicprofile&redirect_uri=https://timothyle.github.io/fly-metrics/landing.html">
-                    <img class="linkedin" src="button.png" alt="Linkedin Sign in" width="225px" height="40px" style="margin: auto; display: block;" />
+		
 	</form>
 		
       </div>
