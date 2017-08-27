@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FlyMetrics</title>
+	<!--META-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">	
+	<!--FAVICON-->
+	<link rel="shortcut icon" href="./public/favicon.ico" type="image/x-icon">
+	<!--FONTS-->
+	<style type="text/css">
+		@import url('https://fonts.googleapis.com/css?family=Roboto');
+	</style>
+	<!--Styling-->
+	<link rel="stylesheet" text="text/css" href="./assets/css/bootstrap.css">
+	<style type="text/css">
+		.robfont{
+			font-family: 'Roboto';
+		}
+
+		.vertical-center {
+			height:100%;
+			width:100%;
+
+			text-align: center;  /* align the inline(-block) elements horizontally */
+			font: 0/0 a;         /* remove the gap between inline(-block) elements */
+		}
+
+		.vertical-center:before {    /* create a full-height inline block pseudo=element */
+			content: " ";
+			display: inline-block;
+			vertical-align: middle;    /* vertical alignment of the inline element */
+			height: 100%;
+		}
+
+		.vertical-center > .container {
+			max-width: 100%;
+
+			display: inline-block;
+			vertical-align: middle;  /* vertical alignment of the inline element */
+			/* reset the font property */
+			font: 16px/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
+		}
+
+		.parallax1 {
+			/* Create the parallax scrolling effect */
+			opacity: 0.8;
+			position: relative;
+			background-attachment: fixed;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			/* The image used */
+			background-image: url('./src/airplane.gif');
+
+			/* Full height */
+			height: 100%; 
+		}
+		/* Turn off parallax scrolling for tablets and phones. Increase the pixels if needed */
+		@media only screen and (max-device-width: 1024px) {
+			.parallax {
+				background-attachment: scroll;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="robfont">
+		<div class="parallax parallax1">
+			<div class="vertical-center">
+				<img src="./src/airplane.png" class="App-logo" alt="logo" />
+				<i><h1 class="robfont" style="color: white; text-shadow: 2px 2px 5px #000;">FlyMetrics</h1></i>
+				<p>The sky is the limit.</p>
+			</div>
+		</div>
+		<br>
+		<div class="container container-fluid">
+		<h2>Lorem ipsum dolor sit amet, vix soluta instructior ne, ea vis natum animal repudiandae. Velit delectus vim no, in elit accusam eligendi vel. Prima malorum praesent ut mei, sea sale intellegam ex. Sea rebum feugiat id, sea saepe nemore eu. Verterem prodesset consectetuer cu duo, quas euismod eu mea, suas dicunt mentitum at vel.
+					</p></h2>
+		<a href="https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=86m77lzeen0tnc&state=987654321&scope=r_basicprofile&redirect_uri=https://timothyle.github.io/fly-metrics/landing.html">
+               <img class="linkedin" src="./src/linkedinButton.png" alt="Linkedin Sign in" width="200px" height="50px" style="margin: auto; display: block;" />
+        </a>
+		</div>
+		<br/>
+		<footer align="middle">FlyMetrics &copy; 2017</footer>
+	</div>
+
+	<script type="text/javascript">
+		function linkedin {
+			$('.btn').on('click', function(){
+				$(this).toggleClass('active');
+			});
+
+			var request = require("request");
+
+			var options = { method: 'GET',
+			url: 'https://www.linkedin.com/oauth/v2/authorization',
+			qs: 
+			{ response_type: 'code',
+			client_id: '86m77lzeen0tnc',
+			redirect_uri: 'https://timothyle.github.io/fly-metrics/',
+			state: '987654321',
+			scope: 'r_basicprofile' },
+			headers: 
+			{ 'postman-token': '15ec5734-6314-872e-5f36-cef878d3c6e6',
+			'cache-control': 'no-cache' } };
+
+			request(options, function (error, response, body) {
+				if (error) throw new Error(error);
+
+				console.log(body);
+			});
+		}
+	</script>
+</body>
+</html>
