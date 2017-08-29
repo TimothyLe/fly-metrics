@@ -6,7 +6,10 @@ A web application designed for easy to use interface for users to customize thei
 * Data retrieval of profile information (interests, company, friends)  :warning: **Issues with API access**   
 * Colorful charts and graphs for simple analysis of Airport/revenue data   
 * List of flights and seating diagram  :warning: **Could not access API**  
-* List of traveler data for suggestions :warning: **Could not access API**
+* List of traveler data for suggestions :warning: **Could not access API**  
+
+### Demo  
+![FlyMetrics Demo](https://github.com/TimothyLe/fly-metrics/blob/master/assets/img/demo.gif)
 
 ### Frameworks, Libraries, and APIs
 * MDBootstrap  
